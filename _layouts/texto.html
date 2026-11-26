@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{% include alt.html -%}
+<article class="texto">
+  <header class="texto-cabecalho">
+    <p class="texto-data">{% include date.html date=page.date lang=lang %}</p>
+    <h1>{{ page.title }}</h1>
+    {%- if page.subtitle %}
+    <p class="subtitulo">{{ page.subtitle }}</p>
+    {%- endif %}
+    {%- if has_alt %}
+    <nav class="versoes" aria-label="Idioma / Language">
+      {%- if lang == "pt" %}
+      <span aria-current="true">Português</span><a href="{{ alt_url | relative_url }}" hreflang="en" lang="en">English</a>
+      {%- else %}
+      <a href="{{ alt_url | relative_url }}" hreflang="pt-BR" lang="pt-BR">Português</a><span aria-current="true">English</span>
+      {%- endif %}
+    </nav>
+    {%- endif %}
+  </header>
+
+  <div class="texto-corpo">
+{{ content }}
+  </div>
+
+  <footer class="texto-fim">
+    <a href="{{ t.texts_url | relative_url }}">← {{ t.back }}</a>
+    {%- if has_alt %}
+    <a href="{{ alt_url | relative_url }}" lang="{{ site.data.i18n[other].html_lang }}">{{ t.read_other }} →</a>
+    {%- endif %}
+  </footer>
+</article>

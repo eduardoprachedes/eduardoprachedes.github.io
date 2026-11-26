@@ -1,0 +1,14 @@
+---
+lang: en
+ref: texts
+title: Texts
+---
+{%- assign posts = site.posts | where: "lang", "en" -%}
+{%- assign years = posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
+<h1 class="pagina-titulo">Texts</h1>
+{% for year in years %}
+<section class="ano"><h2 class="secao">{{ year.name }}</h2>
+{% include lista.html posts=year.items short=true %}</section>
+{% else %}
+<p class="vazio">No texts published yet.</p>
+{% endfor %}

@@ -1,0 +1,12 @@
+---
+lang: en
+ref: home
+---
+{%- assign posts = site.posts | where: "lang", "en" -%}
+<h2 class="secao">Latest texts</h2>
+{% if posts.size > 0 %}
+{% include lista.html posts=posts limit=6 excerpt=true %}
+<p class="ver-todos"><a href="{{ '/en/texts/' | relative_url }}">See all texts →</a></p>
+{% else %}
+<p class="vazio">No texts published yet.</p>
+{% endif %}

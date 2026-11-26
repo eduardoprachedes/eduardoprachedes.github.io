@@ -1,0 +1,25 @@
+{%- comment -%}
+  Descobre a versão da página/texto no outro idioma.
+  Define: lang, other, t (textos da interface), alt_url, has_alt
+{%- endcomment -%}
+{%- assign lang = page.lang | default: "pt" -%}
+{%- if lang == "en" -%}{%- assign other = "pt" -%}{%- else -%}{%- assign other = "en" -%}{%- endif -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign alt_url = "" -%}
+{%- assign has_alt = false -%}
+{%- if page.collection == "posts" -%}
+  {%- assign myref = page.ref | default: page.slug -%}
+  {%- for p in site.posts -%}
+    {%- assign pref = p.ref | default: p.slug -%}
+    {%- if p.lang == other and pref == myref -%}
+      {%- assign alt_url = p.url -%}{%- assign has_alt = true -%}{%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- elsif page.ref -%}
+  {%- for p in site.pages -%}
+    {%- if p.lang == other and p.ref == page.ref -%}
+      {%- assign alt_url = p.url -%}{%- assign has_alt = true -%}{%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- if alt_url == "" -%}{%- assign alt_url = site.data.i18n[other].home_url -%}{%- endif -%}

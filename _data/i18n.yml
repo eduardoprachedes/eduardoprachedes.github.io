@@ -1,0 +1,37 @@
+pt:
+  html_lang: pt-BR
+  name: Português
+  home: Início
+  texts: Textos
+  about: Sobre
+  home_url: /
+  texts_url: /textos/
+  about_url: /sobre/
+  latest: Últimos textos
+  see_all: Ver todos os textos
+  empty: Nenhum texto publicado ainda.
+  read_other: Read in English
+  back: Todos os textos
+  theme: Alternar modo claro/escuro
+  other_lang: Ler em
+  months_short: [jan., fev., mar., abr., mai., jun., jul., ago., set., out., nov., dez.]
+  months: [janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro]
+
+en:
+  html_lang: en
+  name: English
+  home: Home
+  texts: Texts
+  about: About
+  home_url: /en/
+  texts_url: /en/texts/
+  about_url: /en/about/
+  latest: Latest texts
+  see_all: See all texts
+  empty: No texts published yet.
+  read_other: Ler em português
+  back: All texts
+  theme: Toggle light/dark mode
+  other_lang: Read in
+  months_short: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]

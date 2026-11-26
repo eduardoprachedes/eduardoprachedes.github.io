@@ -1,0 +1,15 @@
+{%- comment -%} Lista de textos. Parâmetros: posts, limit, excerpt (true/false), short (data curta) {%- endcomment -%}
+{%- assign lim = include.limit | default: 10000 -%}
+<ul class="lista">
+{%- for p in include.posts limit: lim %}
+  <li class="item">
+    <span class="item-data">{% include date.html date=p.date lang=p.lang short=include.short %}</span>
+    <div class="item-corpo">
+      <a class="item-titulo" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      {%- if include.excerpt %}
+      <p class="item-resumo">{{ p.description | default: p.excerpt | strip_html | truncatewords: 38 }}</p>
+      {%- endif %}
+    </div>
+  </li>
+{%- endfor %}
+</ul>

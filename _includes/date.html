@@ -1,0 +1,13 @@
+{%- comment -%} Parâmetros: date, lang, short (opcional: só dia e mês abreviado) {%- endcomment -%}
+{%- assign _m = include.date | date: "%-m" | minus: 1 -%}
+{%- assign _d = include.date | date: "%-d" -%}
+{%- assign _y = include.date | date: "%Y" -%}
+<time datetime="{{ include.date | date: '%Y-%m-%d' }}">
+{%- if include.short -%}
+{%- assign _ms = site.data.i18n[include.lang].months_short -%}
+{%- if include.lang == "en" -%}{{ _ms[_m] }} {{ _d }}{%- else -%}{{ _d }} {{ _ms[_m] }}{%- endif -%}
+{%- else -%}
+{%- assign _months = site.data.i18n[include.lang].months -%}
+{%- if include.lang == "en" -%}{{ _months[_m] }} {{ _d }}, {{ _y }}{%- else -%}{{ _d }} de {{ _months[_m] }} de {{ _y }}{%- endif -%}
+{%- endif -%}
+</time>

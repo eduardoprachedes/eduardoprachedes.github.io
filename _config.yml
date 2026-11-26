@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------
+#  Site de Eduardo Prachedes — configuração do Jekyll (GitHub Pages)
+# ---------------------------------------------------------------
+
+title: Eduardo Prachedes
+description: Textos e ensaios de Eduardo Prachedes.
+
+# Se o repositório se chamar SEU-USUARIO.github.io, deixe baseurl vazio.
+# Se tiver outro nome (ex.: "site"), use baseurl: "/site".
+url: ""
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+
+exclude:
+  - LEIA-ME.md
+  - README.md
+
+defaults:
+  # Textos em português: _posts/pt/AAAA-MM-DD-titulo.md
+  - scope:
+      path: "_posts/pt"
+      type: posts
+    values:
+      lang: pt
+      layout: texto
+      permalink: /textos/:title/
+  # Textos em inglês: _posts/en/AAAA-MM-DD-title.md
+  - scope:
+      path: "_posts/en"
+      type: posts
+    values:
+      lang: en
+      layout: texto
+      permalink: /en/texts/:title/
+  # Páginas (Início, Textos, Sobre)
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
