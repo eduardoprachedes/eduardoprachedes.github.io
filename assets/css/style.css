@@ -12,7 +12,7 @@
 
   --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --coluna: 38rem;
-  --largura: 52rem;
+  --largura: 62rem;
   --lateral: clamp(1.25rem, 5vw, 3rem);
 }
 
@@ -268,7 +268,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Texto ---------- */
 
-.texto { max-width: var(--coluna); margin: 0 auto; }
+.texto { max-width: none; }
 
 .texto-cabecalho { margin-bottom: 3.25rem; }
 
@@ -316,8 +316,10 @@ a { color: inherit; text-decoration: none; }
 .versoes span[aria-current] { background: var(--tinta); color: var(--fundo); }
 
 .texto-corpo {
-  font-size: 1.25rem;
-  line-height: 1.7;
+  font-size: 1.3rem;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
   hyphens: auto;
   -webkit-hyphens: auto;
   font-variant-numeric: oldstyle-nums;
@@ -357,6 +359,10 @@ a { color: inherit; text-decoration: none; }
 .texto-corpo code { font-size: 0.85em; padding: 0.1em 0.3em; border-radius: 3px; background: var(--fio); }
 .texto-corpo sup { line-height: 0; }
 .texto-corpo sup a, .footnotes a { text-decoration: none; color: var(--destaque); }
+
+.texto-corpo h2,
+.texto-corpo h3,
+.texto-corpo blockquote { text-align: left; }
 
 .footnotes {
   margin-top: 3.5rem;
